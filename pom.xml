@@ -2,12 +2,15 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.zls</groupId>
-	<artifactId>springmvc_mybatis_demo</artifactId>
+	<artifactId>myspring</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<properties>
 		<!-- spring版本号 -->
 		<spring.version>3.2.9.RELEASE</spring.version>
+		<!-- jsp 相关版本号 -->
+		<jstl.version>1.2</jstl.version>
+		<servlet.version>3.0-alpha-1</servlet.version>
 		<!-- mybatis版本号 -->
 		<mybatis.version>3.3.0</mybatis.version>
 		<!-- log4j日志文件管理包版本 -->
@@ -69,13 +72,27 @@
 		</dependency>
 		<!-- springframe end -->
 
+		<!-- spring 依赖包 -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>${servlet.version}</version>
+		</dependency>
+
+		<!-- jsp 依赖包 -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>${jstl.version}</version>
+		</dependency>
+
 		<!-- mybatis核心包 -->
 		<dependency>
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis</artifactId>
 			<version>${mybatis.version}</version>
 		</dependency>
-		
+
 		<!-- mybatis/spring包 -->
 		<dependency>
 			<groupId>org.mybatis</groupId>
@@ -89,7 +106,7 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.36</version>
 		</dependency>
-		
+
 		<!-- junit测试包 -->
 		<dependency>
 			<groupId>junit</groupId>
@@ -97,7 +114,7 @@
 			<version>4.12</version>
 			<scope>test</scope>
 		</dependency>
-		
+
 		<!-- 阿里巴巴数据源包 -->
 		<dependency>
 			<groupId>com.alibaba</groupId>
@@ -132,6 +149,6 @@
 		<!-- log end -->
 	</dependencies>
 	<build>
-		<finalName>springmvc_mybatis_demo</finalName>
+		<finalName>myspring</finalName>
 	</build>
 </project>

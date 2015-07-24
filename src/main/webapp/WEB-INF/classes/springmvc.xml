@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd">
+
+	<!-- 1.配置处理器适配器: SimpleControllerHandlerAdapter：即简单控制器处理适配器，
+	所有实现了org.springframework.web.servlet.mvc.Controller 接口的Bean作为
+	springmvc的后端控制器
+	 -->
+	<bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter"/>
+	
+	<!-- 2.配置处理器映射器：处理器映射器 将bean的name作为url进行查找 ，需要在配置Handler时指定beanname（就是url） 
+	所有的映射器都实现 HandlerMapping接口。
+	-->
+	<bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"/>
+	
+	<!-- 3.处理器配置： controller配置
+	前边配置的处理器映射器为BeanNameUrlHandlerMapping，如果请求的URL 为“上下文/items.action”将会成功映射到ic控制器
+	 -->
+	<bean name="/items.action" id="ic" class="com.zls.controller.ItemController"/>
+	
+	<!-- 4.配置视图解析器： 
+	InternalResourceViewResolver：支持JSP视图解析
+	viewClass：JstlView表示JSP模板页面需要使用JSTL标签库，所以classpath中必须包含jstl的相关jar 包；
+	prefix和suffix：查找视图页面的前缀和后缀，最终视图的址为：
+	前缀+逻辑视图名+后缀，逻辑视图名需要在controller中返回ModelAndView指定，比如逻辑视图名为hello，则最终返回的jsp视图地址 “WEB-INF/jsp/hello.jsp”
+	-->
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+		<property name="prefix" value="/WEB-INF/pages/"/>
+		<property name="suffix" value=".jsp"/>
+	</bean>
+</beans>
