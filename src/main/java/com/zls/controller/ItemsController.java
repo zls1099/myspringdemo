@@ -12,7 +12,7 @@ import org.springframework.web.servlet.mvc.Controller;
 import com.zls.mapper.ItemsMapper;
 import com.zls.po.Items;
 
-public class ItemController implements Controller {
+public class ItemsController implements Controller {
 	@Autowired
 	private ItemsMapper itemsMapper;
 

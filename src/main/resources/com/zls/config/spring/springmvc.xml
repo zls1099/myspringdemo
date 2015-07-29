@@ -25,7 +25,7 @@
 	<!-- 3.处理器配置： controller配置
 	前边配置的处理器映射器为BeanNameUrlHandlerMapping，如果请求的URL 为“上下文/items.action”将会成功映射到ic控制器
 	 -->
-	<bean name="/items.action" id="ic" class="com.zls.controller.ItemController"/>
+	<bean name="/items.action" id="itemsCotroller" class="com.zls.controller.ItemsController"/>
 	
 	<!-- 4.配置视图解析器： 
 	InternalResourceViewResolver：支持JSP视图解析
