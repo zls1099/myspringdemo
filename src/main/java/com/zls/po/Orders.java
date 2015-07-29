@@ -1,6 +1,5 @@
 package com.zls.po;
 
-import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -13,12 +12,7 @@ import java.util.Date;
  * @author liangshen_zhou
  *
  */
-public class Orders implements Serializable {
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 8862365184678910678L;
+public class Orders {
 	
 	private Integer id;
     private Integer userId;

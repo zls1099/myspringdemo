@@ -1,13 +1,8 @@
 package com.zls.po;
 
-import java.io.Serializable;
 import java.util.Date;
 
-public class User implements Serializable {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -5066793404537079015L;
+public class User {
 	
 	private Integer id;
 	private String username;

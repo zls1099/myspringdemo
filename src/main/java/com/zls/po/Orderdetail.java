@@ -1,7 +1,5 @@
 package com.zls.po;
 
-import java.io.Serializable;
-
 /**
  * 订单明细表：orderdetail
  * 记录了用户购买信息
@@ -12,13 +10,8 @@ import java.io.Serializable;
  * @author liangshen_zhou
  *
  */
-public class Orderdetail implements Serializable {
+public class Orderdetail {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -403275242991039955L;
-	
 	private Integer id;
     private Integer ordersId;
     private Integer itemsId;
