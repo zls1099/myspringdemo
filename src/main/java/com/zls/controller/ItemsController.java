@@ -1,5 +1,6 @@
 package com.zls.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -19,7 +20,10 @@ public class ItemsController implements Controller {
 	public ModelAndView handleRequest(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		// 商品信息列表
-		List<Items> itemsList = itemsMapper.findItemsList(null);
+		List<Items> itemsList = new ArrayList<>();
+		Items items = itemsMapper.findItemsById(1);
+		itemsList.add(items);
+		
 		// 返回ModelAndView
 		ModelAndView modelView = new ModelAndView();
 		// 相当 于request的setAttribut，在jsp页面中通过itemsList取数据

@@ -5,19 +5,23 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.zls.mapper.ItemsMapper">
 	<!-- sql片段 -->
 	<!-- 商品查询条件 -->
+	<!--
 	<sql id="query_items_where">
 		<if test="items!=null">
-			<if test="items.name!=null and items.name!=''">
-				and items.name like '%${items.name}%'
+			<if test="items.id!=null and items.id!=''">
+				and items.id like '%${items.id}%'
 			</if>
 		</if>
 	</sql>
-
+	-->
+	
 	<!-- 查询商品信息 -->
-	<select id="findItemsList" parameterType="queryVo" resultType="items">
-		select * from items
+	<select id="findItemsById" parameterType="int" resultType="items">
+		select * from items where id=#{id}
+		<!-- 
 		<where>
 			<include refid="query_items_where" />
 		</where>
+		 -->
 	</select>
 </mapper>

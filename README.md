@@ -1,7 +1,7 @@
 # myspring
-1.Springå’ŒMyBatisçš„ç»ƒä¹ 
-2.æ•°æ®åº“ï¼šMySQL
-3.ç›¸å…³è¡¨ç»“æ„ï¼š
+1.SpringºÍMyBatisµÄÁ·Ï°
+2.Êı¾İ¿â£ºMySQL
+3.Ïà¹Ø±í½á¹¹£º
 /*
 SQLyog v10.2 
 MySQL - 5.1.72-community : Database - mybatis
@@ -21,11 +21,11 @@ MySQL - 5.1.72-community : Database - mybatis
 
 CREATE TABLE `items` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(32) NOT NULL COMMENT 'å•†å“åç§°',
-  `price` float(10,1) NOT NULL COMMENT 'å•†å“å®šä»·',
-  `detail` text COMMENT 'å•†å“æè¿°',
-  `pic` varchar(64) DEFAULT NULL COMMENT 'å•†å“å›¾ç‰‡',
-  `createtime` datetime NOT NULL COMMENT 'ç”Ÿäº§æ—¥æœŸ',
+  `name` varchar(32) NOT NULL COMMENT 'ÉÌÆ·Ãû³Æ',
+  `price` float(10,1) NOT NULL COMMENT 'ÉÌÆ·¶¨¼Û',
+  `detail` text COMMENT 'ÉÌÆ·ÃèÊö',
+  `pic` varchar(64) DEFAULT NULL COMMENT 'ÉÌÆ·Í¼Æ¬',
+  `createtime` datetime NOT NULL COMMENT 'Éú²úÈÕÆÚ',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
@@ -33,9 +33,9 @@ CREATE TABLE `items` (
 
 CREATE TABLE `orderdetail` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `orders_id` int(11) NOT NULL COMMENT 'è®¢å•id',
-  `items_id` int(11) NOT NULL COMMENT 'å•†å“id',
-  `items_num` int(11) DEFAULT NULL COMMENT 'å•†å“è´­ä¹°æ•°é‡',
+  `orders_id` int(11) NOT NULL COMMENT '¶©µ¥id',
+  `items_id` int(11) NOT NULL COMMENT 'ÉÌÆ·id',
+  `items_num` int(11) DEFAULT NULL COMMENT 'ÉÌÆ·¹ºÂòÊıÁ¿',
   PRIMARY KEY (`id`),
   KEY `FK_orderdetail_1` (`orders_id`),
   KEY `FK_orderdetail_2` (`items_id`),
@@ -47,10 +47,10 @@ CREATE TABLE `orderdetail` (
 
 CREATE TABLE `orders` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) NOT NULL COMMENT 'ä¸‹å•ç”¨æˆ·id',
-  `number` varchar(32) NOT NULL COMMENT 'è®¢å•å·',
-  `createtime` datetime NOT NULL COMMENT 'åˆ›å»ºè®¢å•æ—¶é—´',
-  `note` varchar(100) DEFAULT NULL COMMENT 'å¤‡æ³¨',
+  `user_id` int(11) NOT NULL COMMENT 'ÏÂµ¥ÓÃ»§id',
+  `number` varchar(32) NOT NULL COMMENT '¶©µ¥ºÅ',
+  `createtime` datetime NOT NULL COMMENT '´´½¨¶©µ¥Ê±¼ä',
+  `note` varchar(100) DEFAULT NULL COMMENT '±¸×¢',
   PRIMARY KEY (`id`),
   KEY `FK_orders_1` (`user_id`),
   CONSTRAINT `FK_orders_id` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
@@ -60,10 +60,10 @@ CREATE TABLE `orders` (
 
 CREATE TABLE `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `username` varchar(32) NOT NULL COMMENT 'ç”¨æˆ·åç§°',
-  `birthday` date DEFAULT NULL COMMENT 'ç”Ÿæ—¥',
-  `sex` char(1) DEFAULT NULL COMMENT 'æ€§åˆ«',
-  `address` varchar(256) DEFAULT NULL COMMENT 'åœ°å€',
+  `username` varchar(32) NOT NULL COMMENT 'ÓÃ»§Ãû³Æ',
+  `birthday` date DEFAULT NULL COMMENT 'ÉúÈÕ',
+  `sex` char(1) DEFAULT NULL COMMENT 'ĞÔ±ğ',
+  `address` varchar(256) DEFAULT NULL COMMENT 'µØÖ·',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
 
@@ -72,7 +72,7 @@ CREATE TABLE `user` (
 /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
-4.ç›¸å…³è¡¨ç»ƒä¹ æ•°æ®ï¼š
+4.Ïà¹Ø±íÁ·Ï°Êı¾İ£º
 /*
 SQLyog v10.2 
 MySQL - 5.1.72-community : Database - mybatis
@@ -90,7 +90,7 @@ MySQL - 5.1.72-community : Database - mybatis
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 /*Data for the table `items` */
 
-insert  into `items`(`id`,`name`,`price`,`detail`,`pic`,`createtime`) values (1,'å°å¼æœº',3000.0,'è¯¥ç”µè„‘è´¨é‡éå¸¸å¥½ï¼ï¼ï¼ï¼',NULL,'2015-02-03 13:22:53'),(2,'ç¬”è®°æœ¬',6000.0,'ç¬”è®°æœ¬æ€§èƒ½å¥½ï¼Œè´¨é‡å¥½ï¼ï¼ï¼ï¼ï¼',NULL,'2015-02-09 13:22:57'),(3,'èƒŒåŒ…',200.0,'åç‰ŒèƒŒåŒ…ï¼Œå®¹é‡å¤§è´¨é‡å¥½ï¼ï¼ï¼ï¼',NULL,'2015-02-06 13:23:02');
+insert  into `items`(`id`,`name`,`price`,`detail`,`pic`,`createtime`) values (1,'Ì¨Ê½»ú',3000.0,'¸ÃµçÄÔÖÊÁ¿·Ç³£ºÃ£¡£¡£¡£¡',NULL,'2015-02-03 13:22:53'),(2,'±Ê¼Ç±¾',6000.0,'±Ê¼Ç±¾ĞÔÄÜºÃ£¬ÖÊÁ¿ºÃ£¡£¡£¡£¡£¡',NULL,'2015-02-09 13:22:57'),(3,'±³°ü',200.0,'ÃûÅÆ±³°ü£¬ÈİÁ¿´óÖÊÁ¿ºÃ£¡£¡£¡£¡',NULL,'2015-02-06 13:23:02');
 
 /*Data for the table `orderdetail` */
 
@@ -102,7 +102,7 @@ insert  into `orders`(`id`,`user_id`,`number`,`createtime`,`note`) values (3,1,'
 
 /*Data for the table `user` */
 
-insert  into `user`(`id`,`username`,`birthday`,`sex`,`address`) values (1,'ç‹äº”',NULL,'2',NULL),(10,'å¼ ä¸‰','2014-07-10','1','åŒ—äº¬å¸‚'),(16,'å¼ å°æ˜',NULL,'1','æ²³å—éƒ‘å·'),(22,'é™ˆå°æ˜',NULL,'1','æ²³å—éƒ‘å·'),(24,'å¼ ä¸‰ä¸°',NULL,'1','æ²³å—éƒ‘å·'),(25,'é™ˆå°æ˜',NULL,'1','æ²³å—éƒ‘å·'),(26,'ç‹äº”',NULL,NULL,NULL);
+insert  into `user`(`id`,`username`,`birthday`,`sex`,`address`) values (1,'ÍõÎå',NULL,'2',NULL),(10,'ÕÅÈı','2014-07-10','1','±±¾©ÊĞ'),(16,'ÕÅĞ¡Ã÷',NULL,'1','ºÓÄÏÖ£Öİ'),(22,'³ÂĞ¡Ã÷',NULL,'1','ºÓÄÏÖ£Öİ'),(24,'ÕÅÈı·á',NULL,'1','ºÓÄÏÖ£Öİ'),(25,'³ÂĞ¡Ã÷',NULL,'1','ºÓÄÏÖ£Öİ'),(26,'ÍõÎå',NULL,NULL,NULL);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

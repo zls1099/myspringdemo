@@ -78,6 +78,13 @@
 			<artifactId>servlet-api</artifactId>
 			<version>${servlet.version}</version>
 		</dependency>
+		
+		<!-- spring-aop 依赖包 -->
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>1.8.6</version>
+		</dependency>
 
 		<!-- jsp 依赖包 -->
 		<dependency>

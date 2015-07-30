@@ -1,11 +1,12 @@
 package com.zls.mapper;
 
-import java.util.List;
+
+import org.springframework.stereotype.Component;
 
 import com.zls.po.Items;
-import com.zls.po.QueryVo;
 
+@Component("itemsMapper")
 public interface ItemsMapper {
 	// 商品列表
-	public List<Items> findItemsList(QueryVo queryVo) throws Exception;
+	public Items findItemsById(Integer id) throws Exception;
 }
