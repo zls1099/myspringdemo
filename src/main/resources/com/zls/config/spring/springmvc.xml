@@ -11,6 +11,8 @@
 		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd">
 
+	<context:component-scan base-package="com.zls" />
+
 	<!-- 1.配置处理器适配器: SimpleControllerHandlerAdapter：即简单控制器处理适配器，
 	所有实现了org.springframework.web.servlet.mvc.Controller 接口的Bean作为
 	springmvc的后端控制器
