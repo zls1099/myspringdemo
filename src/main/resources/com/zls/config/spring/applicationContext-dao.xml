@@ -10,7 +10,7 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd">
 	<!-- 加载配置文件 -->
 	<context:property-placeholder
-		location="classpath:com/zls/config/mybatis/jdbc.properties" />
+		location="classpath:com/zls/config/jdbc.properties" />
 
 	<!-- 数据库连接池 -->
 	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource"
